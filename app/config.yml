@@ -1,0 +1,17 @@
+name: Test
+version: 1.0.0
+alerts:
+  - title: Check it out!
+    type: info
+    content: This is an interesting alert
+sites:
+  - name: Test Site
+    type: primary
+    links:
+      - name: Google
+        path: /google
+        destination: https://www.google.com
+    notes:
+      - name: Test notes
+        type: danger
+        content: This is a dangerous note!

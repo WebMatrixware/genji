@@ -1,0 +1,56 @@
+doctype html
+
+html
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    link(rel='stylesheet', href='modules/bootstrap/dist/css/bootstrap.min.css')
+    link(rel='stylesheet', href='assets/css/style.css')
+    Title Genji
+  body
+    nav.navbar.navbar-expand-medium.navbar-dark.bg-dark
+      span.navbar-brand(data-bind='text: name')
+      span.text-light
+        button.btn.btn-outline-light.mr-3(type='button', data-bind='click: editConfig, visible: $root.editable') Edit
+        span Version&nbsp&nbsp
+        span(data-bind='text: version')
+    div.container-fluid.mt-2.mb-2(data-bind='visible: alerts().length > 0, foreach: alerts')
+      div.alert.alert-dismissible.fade.show(role='alert', data-bind='class: background')
+        h1(data-bind='text: title')
+        span.ml-2(data-bind='text: content')
+        button.close(type='button', data-dismiss='alert', aria-label='Close')
+          span(aria-hidden='true') &times;
+    div.container-fluid.mt-2.mb-2
+      div.card-columns(data-bind='foreach: sites')
+        div.card(data-bind='class: border')
+          div.card-header(data-bind='class: background')
+            h1(data-bind='text: name, class: text')
+          ul.list-group.list-group-flush(data-bind='foreach: links')
+            li.list-group-item
+              h5
+                a(target='_blank', data-bind='attr: {href: destination, title: name}, text: name, class: text')
+              span(data-bind='text: $root.address')
+              span.text-warning(data-bind='text: path')
+              span &nbsp;&nbsp;
+              button.btn.btn-outline-secondary.btn-sm(data-bind='click: copyToClipboard', type='button', title='Copy path to clipboard')
+                i.far.fa-copy
+              br
+              span.small Destination:&nbsp;
+              span.small.text-secondary(data-bind='text: destination')
+          div.card-body(data-bind='visible: notes().length >  0, foreach: notes')
+            div.card(data-bind='class: background')
+              div.card-header
+                h2(data-bind='text: name, class: text')
+              div.card-body(data-bind='text: content, class: text')
+
+    script(src='modules/jquery/dist/jquery.min.js')
+    script(src='modules/popper.js/dist/umd/popper.min.js')
+    script(src='modules/bootstrap/dist/js/bootstrap.min.js')
+    script(src='modules/knockout/build/output/knockout-latest.js')
+    script(src='modules/superagent/dist/superagent.min.js')
+    script(src='modules/@fortawesome/fontawesome-free/js/all.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.11/ace.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.11/mode-yaml.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.11/theme-tomorrow_night_eighties.min.js')
+    script(src='assets/js/config.js')
+    script(src='assets/js/index.js')

@@ -1,0 +1,19 @@
+{
+  "name": "genji-ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ben Lanning <blanning@all-mode.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3",
+    "bootstrap": "^4.6.0",
+    "jquery": "^3.6.0",
+    "knockout": "^3.5.1",
+    "popper.js": "^1.16.1",
+    "superagent": "^6.1.0"
+  }
+}

@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  app:
+    image: blanning/genji:v1.0.10
+    container_name: genji_v1.0.10
+    ports:
+      - "80:80"
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
